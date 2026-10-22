@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FINOVA | Digital Banking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="FINOVA home">
+        <span class="brand-icon">F</span>
+        <span>FINOVA<span class="dot">.</span><small>DIGITAL BANKING</small></span>
+        <button class="icon-btn mobile-close" id="closeMenu" aria-label="Close menu">×</button>
+      </a>
+
+      <p class="nav-label">MAIN MENU</p>
+      <nav>
+        <button class="nav-item active" data-page="Overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-page="Transactions"><span>⇄</span> Transactions</button>
+        <button class="nav-item" data-page="Cards"><span>▤</span> My Cards</button>
+        <button class="nav-item" data-page="Analytics"><span>⌁</span> Analytics</button>
+        <button class="nav-item" data-page="Payments"><span>↗</span> Payments</button>
+      </nav>
+
+      <p class="nav-label preferences">PREFERENCES</p>
+      <nav>
+        <button class="nav-item" data-page="Settings"><span>⚙</span> Settings</button>
+        <button class="nav-item" data-page="Help"><span>?</span> Help Center</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="support-box">
+          <div class="support-icon">✦</div>
+          <strong>Need some help?</strong>
+          <p>Explore your digital banking demo.</p>
+          <button id="supportBtn">Visit support ↗</button>
+        </div>
+        <div class="profile">
+          <div class="avatar">PK</div>
+          <div><strong>Pardeep Kumar</strong><small>Personal account</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb-area">
+          <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+          <span class="breadcrumb">Workspace <b>/</b> <strong id="breadcrumb">Overview</strong></span>
+        </div>
+        <div class="top-actions">
+          <span class="demo-badge"><i></i> DEMO ACCOUNT</span>
+          <button class="icon-btn notification" id="notificationBtn" aria-label="Notifications">♧<i></i></button>
+          <button class="user-button" id="profileBtn"><span class="avatar small">PK</span><span>Pardeep</span>⌄</button>
+        </div>
+      </header>
+
+      <div class="page">
+        <section class="welcome">
+          <div>
+            <span class="eyebrow">YOUR FINANCIAL SPACE</span>
+            <h1 id="pageTitle">Good afternoon, Pardeep <span class="spark">✦</span></h1>
+            <p id="pageSubtitle">Here's your financial snapshot for today.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="button button-light" id="exportBtn">⇩ Export report</button>
+            <button class="button button-primary" id="openTransfer">＋ Transfer money</button>
+          </div>
+        </section>
+
+        <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+        <section class="stats">
+          <article class="stat-card balance-card">
+            <div class="stat-heading">Total balance <span>•••</span></div>
+            <div class="big-balance" id="balance">₹2,48,560.00</div>
+            <div class="balance-change"><b>↗ 8.2%</b> vs. last month</div>
+            <div class="rings"></div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon income-icon">↙</div>
+            <div class="stat-label">Total income <span class="positive">↗ 12.4%</span></div>
+            <div class="stat-number" id="income">₹86,400</div>
+            <p class="stat-foot">Recorded this month</p>
+            <div class="mini-chart green-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon expense-icon">↗</div>
+            <div class="stat-label">Total expenses <span class="negative">↘ 3.1%</span></div>
+            <div class="stat-number" id="expenses">₹32,850</div>
+            <p class="stat-foot">Recorded this month</p>
+            <div class="mini-chart orange-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+        </section>
+
+        <section class="middle-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <div><h2>Cash flow</h2><p>Income versus expenses</p></div>
+              <select id="chartPeriod" aria-label="Chart period">
+                <option value="6">Last 6 months</option>
+                <option value="4">Last 4 months</option>
+                <option value="3">Last 3 months</option>
+              </select>
+            </div>
+            <div class="legend">
+              <span><i class="legend-income"></i> Income</span>
+              <span><i class="legend-expense"></i> Expenses</span>
+              <strong id="netFlow">+₹53,550<small>net cash flow</small></strong>
+            </div>
+            <div id="chart" class="chart"></div>
+          </article>
+
+          <article class="panel card-panel">
+            <div class="panel-heading">
+              <div><h2>My card</h2><p>Your virtual demo card</p></div>
+              <button class="text-button" data-page="Cards">Manage ↗</button>
+            </div>
+
+            <div class="bank-card" id="bankCard">
+              <div class="bank-card-top"><strong>FINOVA<span>.</span></strong><span class="contactless">)))</span></div>
+              <div class="chip"><i></i><i></i><i></i><i></i></div>
+              <div id="cardNumber" class="card-number">•••• &nbsp; •••• &nbsp; •••• &nbsp; 4829</div>
+              <div class="card-bottom">
+                <div><small>CARD HOLDER</small><strong>PARDEEP KUMAR</strong></div>
+                <div><small>EXPIRES</small><strong>09/29</strong></div>
+                <div class="mastercard"><i></i><i></i></div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button class="card-action" id="freezeCard">❄ <span>Freeze card</span></button>
+              <button class="card-action" id="revealCard">◉ <span>Show details</span></button>
+            </div>
+            <p class="card-status" id="cardStatus"><i></i> Card is active <span>Demo card</span></p>
+          </article>
+        </section>
+
+        <section class="panel transactions">
+          <div class="panel-heading transaction-heading">
+            <div><h2>Recent transactions</h2><p>Your latest account activity</p></div>
+            <button class="text-button" data-page="Transactions">View all ↗</button>
+          </div>
+          <div class="transaction-tools">
+            <label class="search">
+              <span>⌕</span>
+              <input type="search" id="searchInput" placeholder="Search transactions...">
+            </label>
+            <select id="filterSelect" aria-label="Filter transactions">
+              <option value="all">All transactions</option>
+              <option value="income">Income</option>
+              <option value="expense">Expenses</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>RECIPIENT / SOURCE</th><th>DATE</th><th>CATEGORY</th><th>STATUS</th><th class="right">AMOUNT</th></tr>
+              </thead>
+              <tbody id="transactionRows"></tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span id="resultCount">Showing transactions</span>
+            <button class="text-button" id="clearFilters">Clear filters ↺</button>
+          </div>
+        </section>
+
+        <footer>
+          <span>© 2026 FINOVA Financial Demo</span>
+          <span><i></i> Demo data only · No real banking connection</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Transfer modal -->
+  <div class="modal-backdrop" id="transferModal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="transferTitle">
+      <div class="modal-heading">
+        <div>
+          <span class="eyebrow">QUICK PAYMENT</span>
+          <h2 id="transferTitle">Transfer money</h2>
+          <p>Create a simulated transfer in your demo account.</p>
+        </div>
+        <button class="icon-btn" data-close aria-label="Close">×</button>
+      </div>
+      <div class="warning">ⓘ Demo only. This form does not send real money.</div>
+      <form id="transferForm">
+        <label class="form-label">Recipient name
+          <input id="recipient" name="recipient" maxlength="70" required placeholder="e.g. Rahul Sharma">
+        </label>
+        <label class="form-label">Account / UPI demo reference
+          <input id="reference" name="reference" maxlength="80" required placeholder="e.g. rahul@upi">
+        </label>
+        <div class="form-row">
+          <label class="form-label">Amount (₹)
+            <input id="amount" type="number" min="1" max="1000000" step="0.01" required placeholder="0.00">
+          </label>
+          <label class="form-label">Category
+            <select id="category">
+              <option>Transfer</option><option>Shopping</option><option>Food</option>
+              <option>Utilities</option><option>Education</option><option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label class="form-label">Note (optional)
+          <input id="note" maxlength="100" placeholder="Add a note">
+        </label>
+        <div class="transfer-summary"><span>Demo transfer fee</span><strong>₹0.00</strong></div>
+        <button class="button button-primary submit-button" type="submit">Confirm demo transfer ↗</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- General information modal -->
+  <div class="modal-backdrop" id="infoModal" aria-hidden="true">
+    <section class="modal info-modal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+      <div class="modal-heading">
+        <div><span class="eyebrow">FINOVA</span><h2 id="infoTitle">Information</h2><p id="infoText">This is a banking demo.</p></div>
+        <button class="icon-btn" data-close aria-label="Close">×</button>
+      </div>
+      <button class="button button-primary submit-button" data-close>Got it</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
